@@ -87,7 +87,31 @@ This sample creates a Generative AI-powered Financial Services Agent that can as
 </div>
 
 <!-- Paste your Lex Web UI JavaScript plugin here --> 
+<script src="https://d28w22e910zf7d.cloudfront.net/lex-web-ui-loader.js"></script>
+  <script>
 
+    var loaderOpts = {
+      baseUrl: 'https://d28w22e910zf7d.cloudfront.net/',
+      shouldLoadMinDeps: true
+    }; 
+    var lexWebUiLoader = new ChatBotUiLoader.IframeLoader(loaderOpts);
+
+    var chatbotUiconfig = {
+       /* ui: {
+        // origin of the parent site where you are including the chatbot UI
+        parentOrigin: 'https://mysite.example.org'
+      },
+      iframe: {
+        // origin hosting the HTML file that will be embedded in the iframe
+        iframeOrigin: 'https://iframe-host.example.org'
+      }*/
+    }; 
+
+    lexWebUiLoader.load(chatbotUiconfig)
+      .catch(function (error) {
+        console.error('chatbot UI failed to load', error);
+      });
+  </script>
 <!-- End of Lex Web UI IFrame Snippet--> 
   
 </body>

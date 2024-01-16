@@ -111,7 +111,31 @@
 <div class="content-fixed bg clr-brd-df wse-pg wse-pg-df clr-bkg-61" objtype="34"><div class="content-inner"><div class="wseSHBL"></div><div class="wseSHBR"></div><div class="wseSHTL"></div><div class="wseSHTR"></div></div></div></div> </div>
 
 <!-- Paste your Lex Web UI JavaScript plugin here --> 
+<script src="https://d28w22e910zf7d.cloudfront.net/lex-web-ui-loader.js"></script>
+  <script>
 
+    var loaderOpts = {
+      baseUrl: 'https://d28w22e910zf7d.cloudfront.net/',
+      shouldLoadMinDeps: true
+    }; 
+    var lexWebUiLoader = new ChatBotUiLoader.IframeLoader(loaderOpts);
+
+    var chatbotUiconfig = {
+       /* ui: {
+        // origin of the parent site where you are including the chatbot UI
+        parentOrigin: 'https://mysite.example.org'
+      },
+      iframe: {
+        // origin hosting the HTML file that will be embedded in the iframe
+        iframeOrigin: 'https://iframe-host.example.org'
+      }*/
+    }; 
+
+    lexWebUiLoader.load(chatbotUiconfig)
+      .catch(function (error) {
+        console.error('chatbot UI failed to load', error);
+      });
+  </script>
 <!-- End of Lex Web UI IFrame Snippet--> 
 
 </body>
